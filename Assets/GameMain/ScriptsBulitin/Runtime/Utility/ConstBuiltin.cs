@@ -7,6 +7,8 @@ using System.Collections.Generic;
 public static class ConstBuiltin
 {
     public static readonly string HOT_FIX_DLL_DIR = "GameMain/HotfixDlls";
+    public static readonly string Model_DIR = "GameMain/Model";
+
     public static readonly string AOT_DLL_DIR = "AotDlls";//相对于Resources目录
     public static readonly string CheckVersionUrl = "https://gitcode.net/topgamesopen/gf_hybridclr_hotfix/-/raw/master";//热更新检测地址
     public static readonly string VersionFile = "version.json";

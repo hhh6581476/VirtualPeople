@@ -102,12 +102,22 @@ namespace UnityGameFramework.Runtime
                 return;
             }
 
-            m_UnityWebRequest = UnityWebRequest.Post(webRequestUri, Utility.Converter.GetString(postData));
-#if UNITY_2017_2_OR_NEWER
+            m_UnityWebRequest = new UnityWebRequest(webRequestUri, UnityWebRequest.kHttpVerbPOST);
+            if (postData.Length > 0)
+            {
+                m_UnityWebRequest.uploadHandler = new UploadHandlerRaw(postData);
+            }
+            m_UnityWebRequest.downloadHandler = new DownloadHandlerBuffer();
+            m_UnityWebRequest.SetRequestHeader("Content-Type", "application/json;charset=utf-8");
             m_UnityWebRequest.SendWebRequest();
-#else
-            m_UnityWebRequest.Send();
-#endif
+
+            //            m_UnityWebRequest = UnityWebRequest.Post(webRequestUri, Utility.Converter.GetString(postData));
+
+            //#if UNITY_2017_2_OR_NEWER
+            //            m_UnityWebRequest.SendWebRequest();
+            //#else
+            //                        m_UnityWebRequest.Send();
+            //#endif
         }
 
         /// <summary>

@@ -176,6 +176,8 @@ namespace SuperScrollView
             }
             if (Mathf.Abs(vec) < 50f)
             {
+                Debug.LogError(", 111111curNearestItemIndex:" + curNearestItemIndex);
+
                 mLoopListView.SetSnapTargetItemIndex(curNearestItemIndex);
                 return;
             }
@@ -184,10 +186,14 @@ namespace SuperScrollView
             {
                 if (vec > 0)
                 {
+                    Debug.LogError(", 2222curNearestItemIndex:" + curNearestItemIndex);
+
                     mLoopListView.SetSnapTargetItemIndex(curNearestItemIndex - 1);
                 }
                 else
                 {
+                    Debug.LogError(", 33333curNearestItemIndex:" + curNearestItemIndex);
+
                     mLoopListView.SetSnapTargetItemIndex(curNearestItemIndex);
                 }
             }
@@ -195,10 +201,14 @@ namespace SuperScrollView
             {
                 if (vec > 0)
                 {
+                    Debug.LogError(",4444curNearestItemIndex:" + curNearestItemIndex);
+
                     mLoopListView.SetSnapTargetItemIndex(curNearestItemIndex);
                 }
                 else
                 {
+                    Debug.LogError(", 6666curNearestItemIndex:" + curNearestItemIndex);
+
                     mLoopListView.SetSnapTargetItemIndex(curNearestItemIndex+1);
                 }
             }
@@ -206,10 +216,14 @@ namespace SuperScrollView
             {
                 if (vec > 0)
                 {
+                    Debug.LogError(", 7777curNearestItemIndex:" + curNearestItemIndex);
+
                     mLoopListView.SetSnapTargetItemIndex(curNearestItemIndex-1);
                 }
                 else
                 {
+                    Debug.LogError(",88888curNearestItemIndex:" + curNearestItemIndex);
+
                     mLoopListView.SetSnapTargetItemIndex(curNearestItemIndex + 1);
                 }
             }

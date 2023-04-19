@@ -960,6 +960,31 @@ namespace UnityGameFramework.Runtime
         /// 异步加载资源。
         /// </summary>
         /// <param name="assetName">要加载资源的名称。</param>
+        /// <param name="loadAssetCallbacks">加载资源回调函数集。</param>
+        public void LoadAsset(string assetName)
+        {
+            LoadAssetCallbacks loadAssetCallbacks = new LoadAssetCallbacks((string assetName, object asset, float duration, object userData) =>
+            {
+                ResourceLoadAssetSuccessEventArgs resourceLoadAssetSuccessEventArgs = new ResourceLoadAssetSuccessEventArgs();
+                resourceLoadAssetSuccessEventArgs.AssetName = assetName;
+                resourceLoadAssetSuccessEventArgs.Asset = asset;
+                resourceLoadAssetSuccessEventArgs.UserData = userData;
+                m_EventComponent.Fire(this, resourceLoadAssetSuccessEventArgs);
+            },
+            (string assetName, LoadResourceStatus status, string errorMessage, object userData) => {
+                ResourceLoadAssetFailureEventArgs resourceLoadAssetFailureEventArgs = new ResourceLoadAssetFailureEventArgs();
+                resourceLoadAssetFailureEventArgs.AssetName = assetName;
+                resourceLoadAssetFailureEventArgs.ErrorMessage = errorMessage;
+                resourceLoadAssetFailureEventArgs.UserData = userData;
+                m_EventComponent.Fire(this, resourceLoadAssetFailureEventArgs);
+            });
+            LoadAsset(assetName, null, DefaultPriority, loadAssetCallbacks, null);
+        }
+
+        /// <summary>
+        /// 异步加载资源。
+        /// </summary>
+        /// <param name="assetName">要加载资源的名称。</param>
         /// <param name="assetType">要加载资源的类型。</param>
         /// <param name="loadAssetCallbacks">加载资源回调函数集。</param>
         public void LoadAsset(string assetName, Type assetType, LoadAssetCallbacks loadAssetCallbacks)

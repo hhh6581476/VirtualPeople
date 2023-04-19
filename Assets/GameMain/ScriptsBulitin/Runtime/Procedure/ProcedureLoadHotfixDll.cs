@@ -23,7 +23,7 @@ namespace StarForce
         {
             get
             {
-                return true;
+                return false;
             }
         }
 
@@ -152,7 +152,12 @@ namespace StarForce
         }
         private void LoadHotfixDlls()
         {
-            Log.Info("开始加载热更新dll");
+
+
+
+
+
+            Log.Info("开始加载热更新dll  123");
             var hotfixListFile = UtilityBuiltin.ResPath.GetCombinePath("Assets", ConstBuiltin.HOT_FIX_DLL_DIR, "HotfixFileList.txt");
             if (GameEntry.Resource.HasAsset(hotfixListFile) == GameFramework.Resource.HasAssetResult.NotExist)
             {

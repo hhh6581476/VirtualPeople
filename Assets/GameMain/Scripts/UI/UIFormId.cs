@@ -66,6 +66,7 @@ namespace StarForce
     public enum UIGroupId : byte
     {
         Undefined = 0,
-        Default = 1
+        Default = 1,
+        Pop=2,
     }
 }
