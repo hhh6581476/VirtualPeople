@@ -38,11 +38,7 @@ public class MenuForm : UGuiForm
         pageViewCom = this.transform.Find("PageViewComponent").gameObject.AddComponent<PageViewComponent>();
         QuestionText = this.transform.Find("PageViewComponent/Question/Text").GetComponent<Text>();
         SetQuestionAnswerActive(false);
-        bool isOk = MSCHelper.MSPLogin(MSCConfig.user, MSCConfig.pwd, MSCConfig.app_id);
-        if (!isOk)
-        {
-            return;
-        }
+       
 
         renderTexture = new RenderTexture(1920,1080,101);
         GameObject.Find("Camera").GetComponent<Camera>().targetTexture = renderTexture;

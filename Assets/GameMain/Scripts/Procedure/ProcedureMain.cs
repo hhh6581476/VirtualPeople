@@ -23,11 +23,18 @@ public class ProcedureMain : MonoBehaviour
     void Awake()
     {
         player = new AIPlayer();
-        player.Init();
     }
 
     private void Start()
     {
+        bool isOk = MSCHelper.MSPLogin(MSCConfig.user, MSCConfig.pwd, MSCConfig.app_id);
+        if (!isOk)
+        {
+            return;
+        }
+
+        player.Init();
+
         GameEntry.UI.OpenUIForm(UIFormId.MenuForm, this);
         player.StartRecord();
 

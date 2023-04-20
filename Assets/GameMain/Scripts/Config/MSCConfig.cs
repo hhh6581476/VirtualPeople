@@ -12,8 +12,8 @@ public class MSCConfig
     public static string qtts_session_begin_params = "voice_name = xiaoyan, text_encoding = utf8, sample_rate = 16000, speed = 50, volume = 50, pitch = 50, rdn = 0";
     public static int lengthSec = 999;//时长
     public static int frequency = 16000;//频率
-    public static float minVolume = 0.01f;// 5;//最小音量
-    public static float maxVolume = 0.5f;//20;//最大音量
+    public static float minVolume = 0.1f;// 5;//最小音量
+    public static float maxVolume = 1;//20;//最大音量
     public static int minVolume_Sum = 60;//小音量总和值
     public static int minVolume_Number;//记录的小音量数量
 
